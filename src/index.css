@@ -1,0 +1,49 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+table td {
+  width: 15px;
+  height: 15px;
+  border: none;
+  background-color: yellow;
+}
+
+table td.rabbit {
+  background-color: red;
+}
+
+table td.hammer { 
+  background-color: blue;
+}
+
+.charContainer {
+  font-family: 'Inconsolata', monospace;
+  color: white;
+  white-space: pre-line;
+  line-height: 15px;
+  font-size: 15px;
+  letter-spacing: 3px;
+  user-select: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.pixel {
+  margin: 1px;
+  width: 10px;
+  height: 10px;
+}
+
+.pixel[data-state='0'] {
+  background-color: black;
+}
+
+.pixel[data-state='1'] {
+  background-color: white;
+}
