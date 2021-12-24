@@ -10,7 +10,7 @@ console.log('mounted canvas')
 export const drawScreen = (vscreen: VScreen): void => {
   canvas.width = vscreen.width
   canvas.height = vscreen.height
-  var ctx = canvas.getContext('2d')
+  const ctx = canvas.getContext('2d')
   for (let i = 0; i < vscreen.height; i++) {
     for (let j = 0; j < vscreen.width; j++) {
       const value = vscreen.data[i][j] // 0 - 255

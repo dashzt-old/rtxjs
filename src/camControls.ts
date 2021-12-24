@@ -19,16 +19,16 @@ export const bindCamControls = (cam: Camera, callback): void => {
       cam.zeroRay.point = v3utils.add(cam.zeroRay.point, vector3(0, 0.1, 0))
     }
     if (e.key === 'ArrowUp') {
-      cam.zeroRay.direction = v3utils.rotateZ(cam.zeroRay.direction, 3)
+      cam.zeroRay.direction = v3utils.rotateY(cam.zeroRay.direction, 3)
     }
     if (e.key === 'ArrowDown') {
-      cam.zeroRay.direction = v3utils.rotateZ(cam.zeroRay.direction, -3)
-    }
-    if (e.key === 'ArrowLeft') {
       cam.zeroRay.direction = v3utils.rotateY(cam.zeroRay.direction, -3)
     }
+    if (e.key === 'ArrowLeft') {
+      cam.zeroRay.direction = v3utils.rotateZ(cam.zeroRay.direction, -3)
+    }
     if (e.key === 'ArrowRight') {
-      cam.zeroRay.direction = v3utils.rotateY(cam.zeroRay.direction, 3)
+      cam.zeroRay.direction = v3utils.rotateZ(cam.zeroRay.direction, 3)
     }
     callback()
   })
