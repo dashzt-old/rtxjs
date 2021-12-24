@@ -6,7 +6,7 @@ import { camera } from 'camera'
 import { triangleIntersection } from 'triangleIntersection'
 import { bindCamControls } from 'camControls'
 
-const vscreen = vScreen(200, 200)
+const vscreen = vScreen(100, 100)
 
 const cam = camera(
   vector3(0, 0, 0),
@@ -16,9 +16,16 @@ const cam = camera(
 const tri = triangle(
   vector3(1, 1, -1),
   vector3(1, -1, -1),
-  vector3(1, 0, 1)
+  vector3(1, 0, 1),
+  { r: 255, g: 0, b: 0 }
 )
 
+const tri2 = triangle(
+  vector3(1, 1, -1),
+  vector3(1, -1, -1),
+  vector3(1, 0, 1),
+  { r: 0, g: 255, b: 0 }
+)
 
 const fillVscreen = (screen: VScreen) => {
   const FOV = 120
@@ -30,19 +37,19 @@ const fillVscreen = (screen: VScreen) => {
 
   for (let i = 0; i < screen.height; i++) {
     for (let j = 0; j < screen.width; j++) {
-      const originalDirection = cam.zeroRay.direction
+      const originalDir = cam.zeroRay.direction
+
+      const tiltedHorizontally = v3utils.rotateZ(originalDir, -halfFOV + j * horizontalStep)
+      const tiltedVertically = v3utils.rotateY(tiltedHorizontally, -halfVerticalFOV + i * verticalStep) 
       
-      const directionAdjustedHorizontaly = v3utils.rotateY(originalDirection, -halfFOV + j * horizontalStep)
-      const directionAdjustedVertically = v3utils.rotateZ(directionAdjustedHorizontaly, halfVerticalFOV - i * verticalStep)
-      const finalDir = directionAdjustedVertically
       const intersectionDistance = triangleIntersection({
-        direction: finalDir,
+        direction: tiltedVertically,
         point: cam.zeroRay.point
       }, tri)
       if (intersectionDistance <= 0) {
-        screen.data[i][j] = 0
+        screen.data[i][j] = { r: 0, g: 0, b: 0 }
       } else {
-        screen.data[i][j] = 255
+        screen.data[i][j] = tri.color
       }
     }
   }

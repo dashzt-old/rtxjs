@@ -14,7 +14,7 @@ export const drawScreen = (vscreen: VScreen): void => {
   for (let i = 0; i < vscreen.height; i++) {
     for (let j = 0; j < vscreen.width; j++) {
       const value = vscreen.data[i][j] // 0 - 255
-      ctx.fillStyle = "rgba(" + value + "," + value + "," + value + "," + 1 + ")";
+      ctx.fillStyle = "rgba(" + value.r + "," + value.g + "," + value.b + "," + 1 + ")";
       ctx.fillRect(j, i, 1, 1)
     }
   }

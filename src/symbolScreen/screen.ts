@@ -20,7 +20,7 @@ export const drawScreen = (vscreen: VScreen): void => {
     let row = ''
     for (let j = 0; j < vscreen.width; j++) {
       const value = vscreen.data[i][j] // 0 - 255
-      row += getSymbol(value)
+      row += getSymbol(Math.floor((value.r + value.g + value.b) / 3))
     }
     result += row + '\n'
   }
