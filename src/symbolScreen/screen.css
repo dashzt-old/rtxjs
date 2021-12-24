@@ -1,0 +1,17 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+.charContainer {
+  font-family: 'Inconsolata', monospace;
+  color: white;
+  white-space: pre-line;
+  line-height: 13px;
+  font-size: 15px;
+  letter-spacing: -2px;
+  user-select: none;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&display=swap');
