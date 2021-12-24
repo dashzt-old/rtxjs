@@ -1,16 +1,13 @@
 export type VScreen = {
   width: number,
   height: number,
-  data: rgb[][]
+  data: number[][] // 0 - 255
 }
 
-export type rgb = {
-  r: number,
-  g: number,
-  b: number
-}
-
-const defaultPixel = { r: 255, g: 255, b: 255 }
+// data[y][x]
+// First array is row
+// Second array is column
+// So whenever trying to draw something its y coordinate should go first
 
 export const vScreen = (width: number, height: number): VScreen => {
   const result = new Array(height)
@@ -19,7 +16,7 @@ export const vScreen = (width: number, height: number): VScreen => {
     result[i] = new Array(width)
     let j = 0
     while (j < width) {
-      result[i][j] = defaultPixel
+      result[i][j] = 255
       j++
     }
     i++
