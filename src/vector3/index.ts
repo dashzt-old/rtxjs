@@ -4,8 +4,10 @@ import { divide } from 'vector3/functions/divide'
 import { dotProduct } from 'vector3/functions/dotProduct'
 import { magnitude } from 'vector3/functions/magnitude'
 import { multiply } from 'vector3/functions/multiply'
+import { multiplyByMatrix } from 'vector3/functions/multiplyByMatrix'
 import { normalise } from 'vector3/functions/normalise'
-import { subtract  } from 'vector3/functions/subtract'
+import { rotateX, rotateY, rotateZ } from 'vector3/functions/rotate'
+import { subtract } from 'vector3/functions/subtract'
 
 export const v3utils = {
   add,
@@ -14,7 +16,11 @@ export const v3utils = {
   dotProduct,
   magnitude,
   multiply,
+  multiplyByMatrix,
   normalise,
+  rotateX,
+  rotateY,
+  rotateZ,
   subtract
 }
 
