@@ -1,6 +1,10 @@
 import 'symbolScreen/screen.css'
 import { vScreen, VScreen } from 'vScreen'
 
+// This is needed to have correct aspect ratio while rendering stuff
+// It will be utilized by camera.ts
+window['aspectRatioMultiplier'] = 0.534787656584174
+
 const target = document.createElement('div')
 
 target.className = 'charContainer'

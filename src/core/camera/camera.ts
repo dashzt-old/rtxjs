@@ -40,8 +40,8 @@ const generatePrimaryRays = (origin: Ray, width: number, height: number, fov: nu
       const NDCy = (i + 0.5) / height
 
       // screen - coordinates between [-1; -1] and [1; 1]
-      const screenX = (2 * NDCx - 1) * aspectRatio * Math.tan(fovRads / 2)
-      const screenY = (1 - 2 * NDCy) * Math.tan(fovRads / 2)
+      const screenX = (2 * NDCx - 1) * aspectRatio * Math.tan(fovRads / 2) * (window['aspectRatioMultiplier'] || 1)
+      const screenY = (1 - 2 * NDCy) * Math.tan(fovRads / 2) 
       
       res[i][j] = {
         point: origin.point,
