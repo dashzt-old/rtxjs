@@ -1,4 +1,4 @@
-import { rgb } from 'rgb'
+import { rgb } from 'core/types/rgb'
 
 export type VScreen = {
   width: number,

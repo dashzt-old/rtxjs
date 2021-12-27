@@ -1,5 +1,5 @@
-import { Vector3, vector3 } from 'vector3'
-import { multiplyByMatrix } from 'vector3/functions/multiplyByMatrix'
+import { Vector3, vector3 } from 'core/vector3'
+import { multiplyByMatrix } from 'core/vector3/functions/multiplyByMatrix'
 
 const getRotationMatrixX = (angle: number): Vector3[] => {
   const radAngle = Math.PI / 180 * angle

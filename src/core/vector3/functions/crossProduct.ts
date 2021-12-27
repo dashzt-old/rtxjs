@@ -1,4 +1,4 @@
-import { Vector3, vector3 } from 'vector3'
+import { Vector3, vector3 } from 'core/vector3'
 
 export const crossProduct = (vec1: Vector3, vec2: Vector3): Vector3 => {
   return vector3(

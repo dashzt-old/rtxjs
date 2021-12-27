@@ -1,4 +1,4 @@
-import { Vector3, vector3 } from 'vector3'
+import { Vector3, vector3 } from 'core/vector3'
 
 export const multiplyByMatrix = (vec: Vector3, matrix: Vector3[]): Vector3 => {
   return vector3(

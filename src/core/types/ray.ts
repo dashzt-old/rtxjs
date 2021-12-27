@@ -1,4 +1,4 @@
-import { Vector3 } from 'vector3/vector3'
+import { Vector3 } from 'core/vector3/vector3'
 
 export type Ray = {
   point: Vector3,

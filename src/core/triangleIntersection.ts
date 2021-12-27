@@ -1,6 +1,6 @@
-import { Ray } from 'ray'
-import { Triangle } from 'triangle'
-import { Vector3, v3utils } from 'vector3' 
+import { Ray } from 'core/types/ray'
+import { Triangle } from 'core/types/triangle'
+import { Vector3, v3utils } from 'core/vector3' 
 
 // Triangle intersection using Möller - Trumbore method 
 // https://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%9C%D0%BE%D0%BB%D0%BB%D0%B5%D1%80%D0%B0_%E2%80%94_%D0%A2%D1%80%D1%83%D0%BC%D0%B1%D0%BE%D1%80%D0%B0
