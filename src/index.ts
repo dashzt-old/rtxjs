@@ -7,8 +7,8 @@ import { drawMinimap } from 'minimap/minimap'
 import { castRay } from 'core/castRay'
 import { createScene } from 'testScenes/3triangles'
 
-const WIDTH = 500  
-const HEIGHT = 500
+const WIDTH = 100 
+const HEIGHT = 100
 
 const cam = camera({ width: WIDTH, height: HEIGHT })
 
@@ -16,6 +16,7 @@ const gameScene = createScene()
 
 const fillVscreen = (): VScreen => {
   const vscreen = vScreen(WIDTH, HEIGHT)
+  
   for (let i = 0; i < HEIGHT; i++) {
     for (let j = 0; j < WIDTH; j++) {
       vscreen.data[i][j] = castRay(gameScene, cam.rays[i][j])
@@ -27,8 +28,11 @@ const fillVscreen = (): VScreen => {
 const renderScene = () => {
   const start = performance.now()
   const vscreen = fillVscreen()
+  console.log('Ray casting took', performance.now() - start, 'ms.')
+  const drawingStart = performance.now()
   drawScreen(vscreen)
-  console.log('Frame took', performance.now() - start)
+  console.log('Drawing to screen took', performance.now() - drawingStart, 'ms.')
+  console.log('Whole frame took', performance.now() - start, 'ms.')
   drawMinimap(cam, gameScene)
 }
 

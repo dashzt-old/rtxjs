@@ -28,22 +28,22 @@ const defaultProps: CameraProps = {
 }
 
 
-const generatePrimaryRays = (origin: Ray, height: number, width: number, fov: number): Ray[][] => {
+const generatePrimaryRays = (origin: Ray, width: number, height: number, fov: number): Ray[][] => {
   const aspectRatio = width / height
   const fovRads = Math.PI / 180 * fov
   const res: Ray[][] = []
-  for (let i = 0; i < width; i++) {
-    for (let j = 0; j < height; j++) {
+  for (let i = 0; i < height; i++) {
+    res[i] = []
+    for (let j = 0; j < width; j++) {
       // NDC - normalizaed device cpace, coordinate from 0 to 1
-      const NDCx = (i + 0.5) / width // + 0.5 to shift point right into the center of each 'pixel')
-      const NDCy = (j + 0.5) / height
+      const NDCx = (j + 0.5) / width // + 0.5 to shift point right into the center of each 'pixel')
+      const NDCy = (i + 0.5) / height
 
       // screen - coordinates between [-1; -1] and [1; 1]
       const screenX = (2 * NDCx - 1) * aspectRatio * Math.tan(fovRads / 2)
       const screenY = (1 - 2 * NDCy) * Math.tan(fovRads / 2)
       
-      if (!res[j]) res[j] = []
-      res[j][i] = {
+      res[i][j] = {
         point: origin.point,
         direction: v3utils.normalise(vector3(screenX, screenY, origin.direction.z))
       }
