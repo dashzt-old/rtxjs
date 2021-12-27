@@ -1,5 +1,5 @@
 import { sceneObject } from 'core/types/sceneObject'
-import { triangle } from 'core/types/triangle'
+import { triangle } from 'core/primitives/triangle'
 import { vector3 } from 'core/vector3'
 import { Scene, scene } from 'core/types/scene'
 

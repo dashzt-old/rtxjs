@@ -1,5 +1,5 @@
 import { rgb } from 'core/types/rgb'
-import { Triangle } from 'core/types/triangle'
+import { Triangle } from 'core/primitives/triangle'
 
 export type SceneObject = {
   triangles: Triangle[]

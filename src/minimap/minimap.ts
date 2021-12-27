@@ -1,7 +1,7 @@
 import 'minimap/minimap.css'
 import { Camera } from 'core/camera/camera'
 import { Vector3, v3utils } from 'core/vector3'
-import { Triangle } from 'core/types/triangle'
+import { Triangle } from 'core/primitives/triangle'
 import { rgb } from 'core/types/rgb'
 import { Scene } from 'core/types/scene'
  

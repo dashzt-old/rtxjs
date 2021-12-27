@@ -1,5 +1,5 @@
 import { Ray } from 'core/types/ray'
-import { Triangle } from 'core/types/triangle'
+import { Triangle } from 'core/primitives/triangle'
 import { Vector3, v3utils } from 'core/vector3' 
 
 // Triangle intersection using Möller - Trumbore method 
