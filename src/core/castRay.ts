@@ -26,6 +26,7 @@ export const castRay = (scene: Scene, ray: Ray): rgb => {
   if (closestObject) {
     return closestObject.color
   } else {
+    if (ray.direction.y < 0) return { r: 40, g: 40, b: 40 }
     return { r: 0, g: 0, b: 0 } // TODO: hit skybox
   }
 }

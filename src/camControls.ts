@@ -1,35 +1,44 @@
 import { Camera } from 'core/camera/camera'
 import { v3utils, vector3 } from 'core/vector3'
+import { v4utils, vector4 } from 'core/vector4'
 
-const keys = ['w', 'a', 's', 'd', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight']
+const keys = ['w', 'a', 's', 'd', 'f', 'r', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight']
 export const bindCamControls = (cam: Camera, callback): void => {
   document.addEventListener('keydown', (e) => {
     console.log('keypress', e.key)
     if (!keys.includes(e.key)) return
+    e.preventDefault()
     if (e.key === 'w') {
-      cam.origin.point = v3utils.add(cam.origin.point, vector3(0.1, 0, 0))
-    } 
+      cam.transform.move(vector3(0, 0, -0.05))
+    }
     if (e.key === 'a') {
-      cam.origin.point = v3utils.add(cam.origin.point, vector3(0, -0.1, 0))
+      cam.transform.move(vector3(-0.05, 0, 0))
     }
     if (e.key === 's') {
-      cam.origin.point = v3utils.add(cam.origin.point, vector3(-0.1, 0, 0))
+      cam.transform.move(vector3(0, 0, 0.05))
     }
     if (e.key === 'd') {
-      cam.origin.point = v3utils.add(cam.origin.point, vector3(0, 0.1, 0))
+      cam.transform.move(vector3(0.05, 0, 0))
+    }
+    if (e.key === 'r') {
+      cam.transform.move(vector3(0, 0.05, 0))
+    }
+    if (e.key === 'f') {
+      cam.transform.move(vector3(0, -0.05, 0))
     }
     if (e.key === 'ArrowUp') {
-      cam.origin.direction = v3utils.rotateY(cam.origin.direction, 3)
+      cam.transform.rotateX(3)
     }
     if (e.key === 'ArrowDown') {
-      cam.origin.direction = v3utils.rotateY(cam.origin.direction, -3)
+      cam.transform.rotateX(-3)
     }
     if (e.key === 'ArrowLeft') {
-      cam.origin.direction = v3utils.rotateZ(cam.origin.direction, -3)
+      cam.transform.rotateY(-3)
     }
     if (e.key === 'ArrowRight') {
-      cam.origin.direction = v3utils.rotateZ(cam.origin.direction, 3)
+      cam.transform.rotateY(3)
     }
+    cam.createRays()
     callback()
   })
 }

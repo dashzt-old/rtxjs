@@ -3,12 +3,11 @@ import { drawScreen } from 'canvasScreen/screen'
 // import { drawScreen } from 'symbolScreen/screen'
 import { camera } from 'core/camera/camera'
 import { bindCamControls } from 'camControls'
-import { drawMinimap } from 'minimap/minimap'
 import { castRay } from 'core/castRay'
-import { createScene } from 'testScenes/3triangles'
+import { createScene } from 'testScenes/rotating'
 
-const WIDTH = 100 
-const HEIGHT = 100
+const WIDTH = 120
+const HEIGHT = 62
 
 const cam = camera({ width: WIDTH, height: HEIGHT })
 
@@ -28,22 +27,23 @@ const fillVscreen = (): VScreen => {
 const renderScene = () => {
   const start = performance.now()
   const vscreen = fillVscreen()
-  console.log('Ray casting took', performance.now() - start, 'ms.')
+  // console.log('Ray casting took', performance.now() - start, 'ms.')
   const drawingStart = performance.now()
   drawScreen(vscreen)
-  console.log('Drawing to screen took', performance.now() - drawingStart, 'ms.')
-  console.log('Whole frame took', performance.now() - start, 'ms.')
-  drawMinimap(cam, gameScene)
+  // console.log('Drawing to screen took', performance.now() - drawingStart, 'ms.')
+  // console.log('Whole frame took', performance.now() - start, 'ms.')
+  // drawMinimap(cam, gameScene)
 }
 
 renderScene()
-console.log('cam.origin.direction', cam.origin.direction)
 
 bindCamControls(cam, () => {
-  console.log('cam.origin.point', cam.origin.point)
-  console.log('cam.origin.direction', cam.origin.direction)
   renderScene()
 })
+
+setInterval(() => {
+  renderScene()
+}, 60)
 
 console.log('cam controls binded')
 
